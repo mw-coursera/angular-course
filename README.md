@@ -1,2 +1,3 @@
 # angular-course
-From coursera
+
+My solutions to the angularjs course
