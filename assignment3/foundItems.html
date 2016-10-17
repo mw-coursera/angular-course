@@ -1,1 +1,9 @@
-<div>What</div>
+<ol>
+  <li ng-repeat="item in foundItems">
+    <button ng-click="onRemove({index: $index});">
+      Don't want this one!
+    </button>
+    {{ item.name}} ({{ item.short_name }}) - {{ item.description }}
+  </li>
+</ol>
+<div class="error" ng-if="error">{{error}}</div>
