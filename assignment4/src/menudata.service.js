@@ -10,7 +10,6 @@ function MenuDataService() {
   var service = this;
 
   service.getAllCategories = function() {
-    console.log("Getting all categories");
     var items = [
       {
         id: 81,
@@ -42,7 +41,6 @@ function MenuDataService() {
   service.getItemsForCategory = function(categoryShortName) {
     // ajax to  https://davids-restaurant.herokuapp.com/menu_items.json?category=categoryShortName
     //see MenuSearchService for assignment 3
-    console.log("MenuDataService.getItemsForCategory: ", categoryShortName);
     var x = {
       'menu_items' : [
         {
