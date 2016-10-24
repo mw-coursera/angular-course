@@ -17,7 +17,28 @@ function RoutesConfig($stateProvider, $urlRouterProvider) {
     })
     .state('categories', {
       url: '/categories',
-      templateUrl: 'src/templates/categories.html'
+      templateUrl: 'src/templates/categories-main.html',
+      controller: 'CategoriesController as categoriesCtrl',
+      resolve: {
+        items: ['MenuDataService', function (MenuDataService) {
+          return MenuDataService.getAllCategories();
+        }]
+      }
     })
-}
+    .state('items', {
+      url: '/items/{categoryShortName}',
+      templateUrl: 'src/templates/items-main.html',
+      controller: 'ItemsController as itemsCtrl',
+      resolve: {
+        items: ['MenuDataService', function (MenuDataService) {
+          return MenuDataService.getAllCategories();
+        }]
+      }
+      // resolve: {
+      //   items: ['MenuDataService', '$stateParams', function (MenuDataService, $stateParams) {
+      //     return MenuDataService.getItemsForCategory($stateParams.categoryShortName);
+      //   }]
+      // }
+    });
+  }
 })();
