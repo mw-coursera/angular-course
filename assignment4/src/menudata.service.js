@@ -42,7 +42,7 @@ function MenuDataService() {
   service.getItemsForCategory = function(categoryShortName) {
     // ajax to  https://davids-restaurant.herokuapp.com/menu_items.json?category=categoryShortName
     //see MenuSearchService for assignment 3
-    console.log("MenuDataService.getItemsForCategory: ", cateoryShortName);
+    console.log("MenuDataService.getItemsForCategory: ", categoryShortName);
     var x = {
       'menu_items' : [
         {

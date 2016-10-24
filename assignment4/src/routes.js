@@ -30,15 +30,10 @@ function RoutesConfig($stateProvider, $urlRouterProvider) {
       templateUrl: 'src/templates/items-main.html',
       controller: 'ItemsController as itemsCtrl',
       resolve: {
-        items: ['MenuDataService', function (MenuDataService) {
-          return MenuDataService.getAllCategories();
+        items: ['$stateParams', 'MenuDataService', function ($stateParams, MenuDataService) {
+          return MenuDataService.getItemsForCategory($stateParams.categoryShortName);
         }]
       }
-      // resolve: {
-      //   items: ['MenuDataService', '$stateParams', function (MenuDataService, $stateParams) {
-      //     return MenuDataService.getItemsForCategory($stateParams.categoryShortName);
-      //   }]
-      // }
     });
   }
 })();

@@ -8,7 +8,7 @@ angular.module('MenuApp')
 ItemsController.$inject = ['MenuDataService', '$stateParams', 'items'];
 function ItemsController(MenuDataService, $stateParams, items) {
   var itemsCtrl = this;
-  itemsCtrl.items = items;
+  itemsCtrl.items = items.menu_items;
   itemsCtrl.categoryShortName = $stateParams.categoryShortName;
 }
 
