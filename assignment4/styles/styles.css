@@ -54,6 +54,9 @@ input[type="text"] {
   color: red;
   font-weight: bold;
 }
+a.active-category {
+  font-weight: bold;
+}
 /*found-items {
   display: block;
   float: left;

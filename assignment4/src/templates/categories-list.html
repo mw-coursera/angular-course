@@ -1,6 +1,8 @@
 <ul>
   <li ng-repeat="item in $ctrl.items">
-      <!-- ui-sref="mainList.itemDetail({itemId: $index})"> -->
-    <a ui-sref="categories.items({categoryShortName: item.short_name})">{{ item.name }}</a>
+    <a ui-sref="categories.items({categoryShortName: item.short_name})"
+      ui-sref-active="active-category">
+      {{ item.name }}
+    </a>
   </li>
 </ul>
