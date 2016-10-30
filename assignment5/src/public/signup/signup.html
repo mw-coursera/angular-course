@@ -1,1 +1,69 @@
-<h1>Sign up</h1>
+<div id="main-content" class="container">
+  <h2 class="text-center">Sign Up</h2>
+  <div class="col-md-4 col-md-offset-4">
+    <form name='suForm' novalidate>
+      <div class="form-group">
+        <label>First Name</label>
+        <input type="text"
+               class="form-control"
+               name="firstname"
+               ng-model="su.user.firstname"
+               required
+               minlength="2">
+         <span class="form-text text-muted"
+           ng-if="(suForm.firstname.$error.minlength || suForm.firstname.$error.required) && suForm.firstname.$touched">
+           Firstname must be at least 2 characters long
+         </span>
+      </div>
+      <div class="form-group">
+        <label>Last Name</label>
+        <input type="text"
+               class="form-control"
+               name="lastname"
+               ng-model="su.user.lastname"
+               required
+               minlength="2">
+         <span class="form-text text-muted"
+           ng-if="(suForm.lastname.$error.minlength || suForm.lastname.$error.required) && suForm.lastname.$touched">
+           Lastname must be at least 2 characters long
+         </span>
+      </div>
+      <div class="form-group">
+        <label>Email Address</label>
+        <input type="email"
+               class="form-control"
+               name="email"
+               ng-model="su.user.email"
+               required>
+        <span class="form-text text-muted"
+           ng-if="suForm.email.$invalid && suForm.email.$touched">
+           Must be a valid email address: handle@domain
+        </span>
+      </div>
+      <div class="form-group">
+        <label>Phone Number</label>
+        <input type="text"
+               class="form-control"
+               name="phonenumber"
+               ng-model="su.user.phonenumber"
+               pattern="(\d{3})-(\d{3})-(\d{4})">
+        <span class="form-text text-muted"
+              ng-if="suForm.phonenumber.$invalid && suForm.phonenumber.$touched">
+         Phone must be in the format ###-###-####.
+        </span>
+      </div>
+      <div class="form-group">
+        <label>Favorite Menu Item Shortname</label>
+        <input type="text"
+               class="form-control"
+               name="menuitem"
+               ng-model="su.user.favoritemenuitem"
+               required
+               min-length="2">
+      </div>
+      <button type="submit" class="btn btn-primary"
+              ng-disabled="suForm.$invalid"
+              ng-click="su.submit()">Submit</button>
+    </form>
+  </div>
+</div>
