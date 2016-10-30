@@ -1,7 +1,7 @@
 <div id="main-content" class="container">
   <h2 class="text-center">Sign Up</h2>
   <div class="col-md-4 col-md-offset-4">
-    <form name='suForm' novalidate ng-if="suCtrl.showForm !== false">
+    <form name='suForm' novalidate>
       <div class="form-group">
         <label>First Name</label>
         <input type="text"
@@ -67,6 +67,7 @@
       </div>
       <button type="submit" class="btn btn-primary"
               ng-disabled="suForm.$invalid"
+              ng-if="suCtrl.showForm !== false"
               ng-click="suCtrl.submit()">Submit</button>
     </form>
     <div ng-if="suCtrl.showForm === false">
