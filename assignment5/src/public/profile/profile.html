@@ -10,7 +10,13 @@
       <div>Email         : {{ profileCtrl.user.email }}</div>
       <div>Phone number  : {{ profileCtrl.user.phonenumber }} </div>
       <div>Favorite Item : {{ profileCtrl.user.favoriteItem.name }}</div>
-      <img ng-src="{{ profileCtrl.user.favoriteItem.imageUrl}}"/>
+      <div class="col-sm-5">
+        <div class="menu-item-photo">
+          <div>{{ profileCtrl.user.favoriteItem.short_name }}</div>
+          <img class="img-responsive" width="250" height="150" ng-src="{{ profileCtrl.user.favoriteItem.imageUrl}}" 
+                 alt="{{ profileCtrl.user.favoriteItem.name }}" />
+        </div>
+      </div>
       <div class="text-muted">{{ profileCtrl.user.favoriteItem.description}}</div>
     </div>
   </div>

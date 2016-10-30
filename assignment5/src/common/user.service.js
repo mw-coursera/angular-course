@@ -13,9 +13,9 @@ function UserService(ApiPath) {
     service.user.favoriteItem = {
       'imageUrl' : ApiPath + '/images/' + menuItem.short_name + ".jpg",
       'name' : menuItem.name,
-      'description' : menuItem.description
+      'description' : menuItem.description,
+      'short_name' : menuItem.short_name
     };
-    console.log("Saved this in UserService: ", service.user);
   }
 
   service.getUser = function() {

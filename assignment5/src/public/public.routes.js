@@ -51,7 +51,12 @@ function routeConfig ($stateProvider) {
       url: '/profile',
       templateUrl: 'src/public/profile/profile.html',
       controller: 'ProfileController',
-      controllerAs: 'profileCtrl'
+      controllerAs: 'profileCtrl',
+      resolve: {
+        user : ['UserService', function(UserService) {
+          return UserService.getUser();
+        }]
+      }
     });
 }
 })();

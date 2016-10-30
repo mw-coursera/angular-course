@@ -4,9 +4,9 @@
   angular.module('public')
   .controller('ProfileController', ProfileController);
 
-  ProfileController.$inject = ['UserService'];
-  function ProfileController(UserService) {
+  ProfileController.$inject = ['user'];
+  function ProfileController(user) {
     var ctrl = this;
-    ctrl.user = UserService.getUser();
+    ctrl.user = user;
   }
 })();
