@@ -1,1 +1,17 @@
-<h1>My Profile</h1>
+<div id="main-content" class="container">
+  <h2 class="text-center">My Profile</h2>
+  <div class="col-md-4 col-md-offset-4">
+    <div ng-if="profileCtrl.user === undefined">
+      Not Signed Up Yet. <a ui-sref="public.signup">Sign up Now!</a>
+    </div>
+    <div ng-if="profileCtrl.user !== undefined">
+      <div>First name    : {{ profileCtrl.user.firstname }}</div>
+      <div>Last name     : {{ profileCtrl.user.lastname }}</div>
+      <div>Email         : {{ profileCtrl.user.email }}</div>
+      <div>Phone number  : {{ profileCtrl.user.phonenumber }} </div>
+      <div>Favorite Item : {{ profileCtrl.user.favoriteItem.name }}</div>
+      <img ng-src="{{ profileCtrl.user.favoriteItem.imageUrl}}"/>
+      <div class="text-muted">{{ profileCtrl.user.favoriteItem.description}}</div>
+    </div>
+  </div>
+</div>

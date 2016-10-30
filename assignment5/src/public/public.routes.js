@@ -49,7 +49,9 @@ function routeConfig ($stateProvider) {
     })
     .state('public.profile', {
       url: '/profile',
-      templateUrl: 'src/public/profile/profile.html'
+      templateUrl: 'src/public/profile/profile.html',
+      controller: 'ProfileController',
+      controllerAs: 'profileCtrl'
     });
 }
 })();
