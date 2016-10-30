@@ -1,13 +1,13 @@
 <div id="main-content" class="container">
   <h2 class="text-center">Sign Up</h2>
   <div class="col-md-4 col-md-offset-4">
-    <form name='suForm' novalidate>
+    <form name='suForm' novalidate ng-if="suCtrl.showForm !== false">
       <div class="form-group">
         <label>First Name</label>
         <input type="text"
                class="form-control"
                name="firstname"
-               ng-model="su.user.firstname"
+               ng-model="suCtrl.user.firstname"
                required
                minlength="2">
          <span class="form-text text-muted"
@@ -20,7 +20,7 @@
         <input type="text"
                class="form-control"
                name="lastname"
-               ng-model="su.user.lastname"
+               ng-model="suCtrl.user.lastname"
                required
                minlength="2">
          <span class="form-text text-muted"
@@ -33,7 +33,7 @@
         <input type="email"
                class="form-control"
                name="email"
-               ng-model="su.user.email"
+               ng-model="suCtrl.user.email"
                required>
         <span class="form-text text-muted"
            ng-if="suForm.email.$invalid && suForm.email.$touched">
@@ -45,7 +45,7 @@
         <input type="text"
                class="form-control"
                name="phonenumber"
-               ng-model="su.user.phonenumber"
+               ng-model="suCtrl.user.phonenumber"
                pattern="(\d{3})-(\d{3})-(\d{4})">
         <span class="form-text text-muted"
               ng-if="suForm.phonenumber.$invalid && suForm.phonenumber.$touched">
@@ -57,13 +57,20 @@
         <input type="text"
                class="form-control"
                name="menuitem"
-               ng-model="su.user.favoritemenuitem"
+               ng-model="suCtrl.user.menuitem"
                required
                min-length="2">
+        <span class="form-text text-muted"
+              ng-if="suCtrl.menuError">
+              {{ suCtrl.menuError}}
+            </span>
       </div>
       <button type="submit" class="btn btn-primary"
               ng-disabled="suForm.$invalid"
-              ng-click="su.submit()">Submit</button>
+              ng-click="suCtrl.submit()">Submit</button>
     </form>
+    <div ng-if="suCtrl.showForm === false">
+      Your information has been saved.
+    </div>
   </div>
 </div>
